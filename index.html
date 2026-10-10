@@ -222,6 +222,10 @@ h2{margin:0;font-size:clamp(2.4rem,6vw,4.4rem);font-weight:500;letter-spacing:-.
 /* projects */
 .pj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .pj{display:flex;flex-direction:column;padding:12px 12px 24px;border-radius:28px;overflow:hidden}
+.pj-hero{grid-column:1/-1;display:grid;grid-template-columns:1.15fr 1fr;gap:12px;padding:14px}
+.pj-hero .pj-vis{height:auto;min-height:300px}
+.pj-hero .pj-body{padding:20px 20px 14px;justify-content:center}
+.pj-hero .pj-body h3{font-size:clamp(1.7rem,2.8vw,2.3rem)}
 .pj-feat{grid-column:span 2;display:grid;grid-template-columns:1.1fr 1fr;gap:8px;padding:12px}
 .pj-vis{position:relative;height:210px;border-radius:20px;display:grid;place-items:center;overflow:hidden;border:1px solid var(--line);background:radial-gradient(var(--dot) 1px,transparent 1.3px) 0 0/16px 16px,linear-gradient(160deg,var(--glass2),transparent 80%)}
 .pj-feat .pj-vis{height:auto;min-height:290px}
@@ -394,8 +398,8 @@ input:focus,textarea:focus{outline:none;border-color:var(--tx);box-shadow:0 0 0 
 @media (max-width:640px){
   section{padding:72px 0}
   .edu,.sk-grid,.pj-grid,.f2,.facts,.jp-photos{grid-template-columns:1fr}
-  .pj-feat{grid-column:auto;grid-template-columns:1fr}
-  .pj-feat .pj-vis{min-height:220px}
+  .pj-feat,.pj-hero{grid-column:auto;grid-template-columns:1fr}
+  .pj-feat .pj-vis,.pj-hero .pj-vis{min-height:220px}
   .facts div:nth-child(odd){padding-right:0}
   .jp-photos .ph-b{margin-top:0}
   .paper{grid-template-columns:1fr;gap:16px}
@@ -446,6 +450,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--tx);box-shadow:0 0 0 
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></symbol>
   <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5.5a4 4 0 0 1-8 0V4zM8 6H4.5a3.5 3.5 0 0 0 3.6 4M16 6h3.5a3.5 3.5 0 0 1-3.6 4M12 13.5V17M8.5 20.5h7M9.5 17h5v3.5h-5z"/></symbol>
+  <symbol id="i-atom" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="9.5" ry="4.2" transform="rotate(30 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="4.2" transform="rotate(90 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="4.2" transform="rotate(150 12 12)"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path class="a" d="M4 8h16"/><path class="b" d="M4 16h16"/></symbol>
 </svg>
 
@@ -512,12 +517,12 @@ input:focus,textarea:focus{outline:none;border-color:var(--tx);box-shadow:0 0 0 
       </div>
       <div class="glass about-card rv">
         <p class="intro">I'm Premkumar, a B.E. Electronics and Communication Engineering student at KPR Institute of Engineering and Technology. Most of my work sits in embedded systems and IoT, and I bring in machine learning where it helps.</p>
-        <p>Recent builds include autonomous parking sensors, SmartGuard (selected among the Top 24 teams across India and ranked Top 7 in a 30-hour national hackathon), and ML weather prediction for a CubeSat team project. I served as Class Representative for the ECE-C cohort, and I have passed JLPT N3 in Japanese.</p>
+        <p>Recent builds include Q-Core Pi (Smart India Hackathon 2026 quantum computing platform), SmartGuard (selected among the Top 24 teams across India and ranked Top 7 in a 30-hour national hackathon), autonomous parking sensors, and ML weather prediction for a CubeSat team project. I served as Class Representative in Semester 2 and Placement Coordinator in Semesters 2 and 3 for the ECE-C cohort, and I have passed JLPT N3 in Japanese.</p>
         <dl class="facts">
           <div><dt>Name</dt><dd>Premkumar G</dd></div>
           <div><dt>Degree</dt><dd>B.E. ECE (pursuing)</dd></div>
           <div><dt>Institute</dt><dd>KPR Institute of Engineering and Technology</dd></div>
-          <div><dt>Role</dt><dd>Class Representative, ECE-C</dd></div>
+          <div><dt>Roles</dt><dd>Class Representative (Sem 2) · Placement Coordinator (Sem 2 &amp; 3)</dd></div>
           <div><dt>Focus</dt><dd>Embedded systems, IoT, AI/ML</dd></div>
           <div><dt>Japanese</dt><dd>JLPT N3</dd></div>
         </dl>
@@ -542,7 +547,10 @@ input:focus,textarea:focus{outline:none;border-color:var(--tx);box-shadow:0 0 0 
         <div class="card-top"><span class="lbl">Undergraduate</span><span class="chip">Pursuing</span></div>
         <h3>B.E. Electronics and Communication Engineering</h3>
         <p>KPR Institute of Engineering and Technology</p>
-        <ul class="ticks"><li>Class Representative, ECE-C cohort</li></ul>
+        <ul class="ticks">
+          <li>Class Representative (Sem 2), ECE-C cohort</li>
+          <li>Placement Coordinator (Sem 2 &amp; 3), ECE-C cohort</li>
+        </ul>
       </article>
       <article class="glass card tilt rv">
         <div class="card-top"><span class="lbl">Language</span><span class="chip chip-inv">N3 passed</span></div>
@@ -582,9 +590,11 @@ input:focus,textarea:focus{outline:none;border-color:var(--tx);box-shadow:0 0 0 
       </article>
       <article class="glass sk tilt rv">
         <div class="sk-ic"><svg class="i"><use href="#i-code"/></svg></div>
-        <h3>Software</h3>
+        <h3>Software &amp; Web</h3>
         <ul>
-          <li><span><b>React</b><small>Working knowledge</small></span><span class="lv" aria-label="Working knowledge"><i class="f"></i><i></i><i></i></span></li>
+          <li><span><b>Next.js &amp; React</b><small>Proficient</small></span><span class="lv" aria-label="Proficient"><i class="f"></i><i class="f"></i><i></i></span></li>
+          <li><span><b>TypeScript</b><small>Proficient</small></span><span class="lv" aria-label="Proficient"><i class="f"></i><i class="f"></i><i></i></span></li>
+          <li><span><b>FastAPI &amp; Qiskit</b><small>Working knowledge</small></span><span class="lv" aria-label="Working knowledge"><i class="f"></i><i></i><i></i></span></li>
           <li><span><b>Electron</b><small>Working knowledge</small></span><span class="lv" aria-label="Working knowledge"><i class="f"></i><i></i><i></i></span></li>
         </ul>
       </article>
@@ -604,11 +614,21 @@ input:focus,textarea:focus{outline:none;border-color:var(--tx);box-shadow:0 0 0 
   <div class="wrap">
     <div class="sh">
       <div><p class="lbl rv">04 / Projects</p><h2 id="pj-h" class="rvz">Selected projects</h2></div>
-      <p class="lead rv">Hardware, sensing and machine-learning builds. Open a project for details.</p>
+      <p class="lead rv">Quantum computing, hardware, sensing and machine-learning builds. Open a project for details.</p>
     </div>
     <div class="pj-grid stagger">
-      <article class="glass pj pj-feat tilt rv" data-n="Project 01" data-tilt="5">
-        <div class="pj-vis" aria-hidden="true"><span class="pj-n">01</span><svg class="i pj-ic"><use href="#i-shield"/></svg><span class="chip chip-inv">Top 24 India · Top 7</span></div>
+      <article class="glass pj pj-hero tilt rv" data-n="Project 01" data-tilt="4">
+        <div class="pj-vis" aria-hidden="true"><span class="pj-n">01</span><svg class="i pj-ic"><use href="#i-atom"/></svg><span class="chip chip-inv">SIH 2026 Project</span></div>
+        <div class="pj-body">
+          <h3><button class="pj-open" type="button">Q-Core Pi</button></h3>
+          <p>An interactive quantum computing learning platform that helps students build, run, and understand quantum circuits in one place. Combines a visual circuit editor, a real Qiskit simulator, state visualisations, circuit-aware AI guidance, and automated assessment grading, with a desktop version for offline use.</p>
+          <div class="tags"><span>Quantum</span><span>Next.js</span><span>TypeScript</span><span>FastAPI</span><span>Qiskit Aer</span></div>
+          <span class="pj-cta">View details <svg class="i"><use href="#i-ur"/></svg></span>
+          <template><p class="award"><svg class="i"><use href="#i-trophy"/></svg>Smart India Hackathon 2026 Project · Team Q-BITX</p><p>Q-Core Pi is an interactive quantum computing learning platform that helps students build, run, and understand quantum circuits in one place. The web-first platform works without requiring students to install quantum development tools, with a desktop version available for offline use.</p><p>Features a visual drag-and-drop circuit editor, a real Qiskit and Qiskit Aer simulator, state visualisations (Bloch sphere, statevector, and probability amplitudes), circuit-aware AI guidance, and assessments that grade circuits based on their simulated results.</p><p><strong>Tech Stack:</strong> Next.js, React, TypeScript, FastAPI, Qiskit, and Qiskit Aer.</p></template>
+        </div>
+      </article>
+      <article class="glass pj pj-feat tilt rv" data-n="Project 02" data-tilt="5">
+        <div class="pj-vis" aria-hidden="true"><span class="pj-n">02</span><svg class="i pj-ic"><use href="#i-shield"/></svg><span class="chip chip-inv">Top 24 India · Top 7</span></div>
         <div class="pj-body">
           <h3><button class="pj-open" type="button">SmartGuard</button></h3>
           <p>A smart safety system that senses danger and alerts people instantly. Selected among the Top 24 teams all over India and ranked Top 7 in a 30-hour national hackathon.</p>
@@ -617,8 +637,8 @@ input:focus,textarea:focus{outline:none;border-color:var(--tx);box-shadow:0 0 0 
           <template><p class="award"><svg class="i"><use href="#i-trophy"/></svg>Top 24 India · Top 7 in 30h Hackathon (iQOO SmartGuard 2024)</p><p>Selected among the Top 24 teams across India and ranked Top 7 in the 30-hour national iQOO SmartGuard hackathon: a smart safety system that senses danger and alerts people instantly.</p></template>
         </div>
       </article>
-      <article class="glass pj tilt rv" data-n="Project 02">
-        <div class="pj-vis" aria-hidden="true"><span class="pj-n">02</span><svg class="i pj-ic"><use href="#i-sat"/></svg></div>
+      <article class="glass pj tilt rv" data-n="Project 03">
+        <div class="pj-vis" aria-hidden="true"><span class="pj-n">03</span><svg class="i pj-ic"><use href="#i-sat"/></svg></div>
         <div class="pj-body">
           <h3><button class="pj-open" type="button">CubeSat Monitoring</button></h3>
           <p>ML weather prediction and monitoring from satellite data.</p>
@@ -627,8 +647,8 @@ input:focus,textarea:focus{outline:none;border-color:var(--tx);box-shadow:0 0 0 
           <template><p>ML-based weather prediction and monitoring for a CubeSat team project, turning satellite data into forecasts.</p></template>
         </div>
       </article>
-      <article class="glass pj tilt rv" data-n="Project 03">
-        <div class="pj-vis" aria-hidden="true"><span class="pj-n">03</span><svg class="i pj-ic"><use href="#i-park"/></svg></div>
+      <article class="glass pj tilt rv" data-n="Project 04">
+        <div class="pj-vis" aria-hidden="true"><span class="pj-n">04</span><svg class="i pj-ic"><use href="#i-park"/></svg></div>
         <div class="pj-body">
           <h3><button class="pj-open" type="button">Smart Parking</button></h3>
           <p>Autonomous sensors that find free slots and guide drivers in real time.</p>
@@ -637,8 +657,8 @@ input:focus,textarea:focus{outline:none;border-color:var(--tx);box-shadow:0 0 0 
           <template><p>Autonomous parking sensors that detect free slots and guide drivers in real time.</p></template>
         </div>
       </article>
-      <article class="glass pj tilt rv" data-n="Project 04">
-        <div class="pj-vis" aria-hidden="true"><span class="pj-n">04</span><svg class="i pj-ic"><use href="#i-laser"/></svg></div>
+      <article class="glass pj tilt rv" data-n="Project 05">
+        <div class="pj-vis" aria-hidden="true"><span class="pj-n">05</span><svg class="i pj-ic"><use href="#i-laser"/></svg></div>
         <div class="pj-body">
           <h3><button class="pj-open" type="button">Laser Security</button></h3>
           <p>An intrusion alarm that fires the moment the beam is broken.</p>
@@ -647,8 +667,8 @@ input:focus,textarea:focus{outline:none;border-color:var(--tx);box-shadow:0 0 0 
           <template><p>A laser-beam intrusion alarm that triggers the moment the beam is broken.</p></template>
         </div>
       </article>
-      <article class="glass pj tilt rv" data-n="Project 05">
-        <div class="pj-vis" aria-hidden="true"><span class="pj-n">05</span><svg class="i pj-ic"><use href="#i-chart"/></svg></div>
+      <article class="glass pj tilt rv" data-n="Project 06">
+        <div class="pj-vis" aria-hidden="true"><span class="pj-n">06</span><svg class="i pj-ic"><use href="#i-chart"/></svg></div>
         <div class="pj-body">
           <h3><button class="pj-open" type="button">AI Trading Assistant</button></h3>
           <p>Studies market data and surfaces signals with machine learning.</p>
@@ -686,15 +706,17 @@ input:focus,textarea:focus{outline:none;border-color:var(--tx);box-shadow:0 0 0 
   <div class="wrap">
     <div class="sh">
       <div><p class="lbl rv">06 / Hackathons</p><h2 id="hk-h" class="rvz">Hackathons</h2></div>
-      <p class="lead rv">Building in teams against the clock. Top 24 teams across India, Top 7 finalist in a 30-hour national hackathon, and Smart India Hackathon nomination.</p>
+      <p class="lead rv">Building in teams against the clock. Top 24 teams across India, Top 7 finalist in a 30-hour national hackathon, and Smart India Hackathon 2026 project.</p>
     </div>
     <div class="hk">
       <ol class="tl" data-fill>
         <li class="tl-i rv">
           <div class="glass tl-card tilt" data-tilt="4">
-            <div class="card-top"><span class="lbl">2026</span><span class="chip">Nominated</span></div>
-            <h3>Smart India Hackathon 2026</h3>
-            <p>Team Q-BITX, nominated by KPR Institute of Engineering and Technology.</p>
+            <div class="card-top"><span class="lbl">2026</span><span class="chip chip-inv">SIH 2026 Project</span></div>
+            <h3>Smart India Hackathon 2026 — Q-Core Pi</h3>
+            <p><strong>Team Q-BITX</strong> · KPR Institute of Engineering and Technology.</p>
+            <p style="margin-top:8px">An interactive quantum computing learning platform that helps students build, run, and understand quantum circuits in one place. Combines a visual circuit editor, real Qiskit simulator, state visualisations, circuit-aware AI guidance, and automated assessment grading, with a desktop version for offline use.</p>
+            <div class="tags" style="margin-top:14px"><span>Next.js</span><span>React</span><span>TypeScript</span><span>FastAPI</span><span>Qiskit</span><span>Qiskit Aer</span></div>
           </div>
         </li>
         <li class="tl-i rv">
